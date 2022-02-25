@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>2021 MINI HOMEPAGE</title>
+    <link rel="stylesheet" href="./static/font.css" />
+    <link rel="stylesheet" href="./static/home.css" />
+    <link rel="stylesheet" href="./static/layout_diary.css" />
+    <script src="https://kit.fontawesome.com/4145803502.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="bookcover">
+      <div class="bookdot">
+          <div class="page">
+            <div class="todaymain">
+              <div class="today">
+                <div class="date">TODAY <span>26</span> | TOTAL 765489</div>
+              </div>
+              <div class="main">
+                <div class="photo"><img src="static/images/Kermit.jpg"></div>
+                <div class="profile">하이~호, 개구리 커밋입니다. 머펫 쇼의 디렉터이자 메인 MC, 사회자를 맡고 있답니다. 그리고
+                멋진 합창 지휘자이기도 하죠.</div>
+                <div class="who">개구리(♂)</div>
+                <div class="wave">
+                  <form action="/action_page.php">
+                    <label for="surf"></label>
+                    <select name="surf" id="surf">
+                      <option hidden value="surfing">파도타기</option>
+                      <option value="codemate">코드메이트 가기</option>
+                      <option value="ins">인스타그램 가기</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            <div class="subjectcontent">
+              <div class="ss2">
+                <div class="subject">Hi-ho, Kermit the Frog here!</div>
+                <div class="subject2">http://url주소/나중에입력</div>
+              </div>
+              <div class="content">
+                <div class="calender">
+                  <div class="to_day_1">
+                    <span>02/21</span> <span>MON</span> </div>
+                  <div class="to_day_2"><span class="red">1 2</span> 3 4 5 <span class="red">6</span> 7 8 9 10 11 12 <span class="red">13</span> 14 15 16 17 18 19 <span class="red">20</span> 21 22 23 24 25 26 <span class="red">27</span> 28</div>
+                </div>
+                <div class="albumbox">
+                  <div class="boxes">
+                    <div class="tt">2009. 11. 12 목 20:00</div>
+                    <div class="talk">
+                      <p>Hi-ho~~~!!!! 개구리 커밋입니다.</p>
+                      <p>아이스 버킷 챌린지를 했습니다.</p>
+                      <p>제 유튜브 채널에 업로드 되었답니다. 아주 뜻 깊은 챌린지였지만, 정말 추웠어요! 몸이 너무 무거웠었습니다...</p>
+                    </div>
+                  </div>
+                  <div class="boxes">
+                    <div class="tt">2009. 09. 22 화 18:00</div>
+                    <div class="talk">
+                      <p>Hi-ho~~~!!!! 개구리 커밋입니다.</p>
+                      <p>오랜만에 Sesame Street에 방문했는데요. </p>
+                      <p>가면서 Sesame Street를 전혀 모르는 척 길도 물어봤습니다. 다들 잘 가르쳐주더군요!</p>
+                    </div>
+                  </div>
+                  <div class="boxes">
+                    <div class="tt">2009. 06. 15 월 15:00</div>
+                    <div class="talk">
+                      <p>Hi-ho~~~!!!! 개구리 커밋입니다.</p>
+                      <p>나원참, 오랜만에 본 친구들은 여전히 제정신이 아니었습니다!</p>
+                      <p>이것저것 참견하느라 너무 고생했네요. sheesh.</p>
+                    </div>
+                  </div>
+                  <div class="hide">
+                    <div class="button" onclick="getTextFile()">
+                      <i class="fa-solid fa-lock"></i>비밀의 문 입장
+                    </div>
+                  </div>
+                  <div class="diary-box" id="secret-box">
+                    <div class="diary-date"><p>커밋의 비밀 일기</p></div>
+                    <div class="diary-text" id="secret-diary"></div>
+                  </div>
+                  <script>
+                    function getTextFile() {
+                      var input = document.createElement("input");
+                      input.type = "file";
+                      input.accept = "text/plain";
+                      input.onchange = function (event) {
+                        processFile(event.target.files[0]);
+                      };
+                      input.click();
+                    }
+
+                    function processFile(file) {
+                      var reader = new FileReader();
+                      reader.readAsText(file, "utf-8");
+
+                      reader.onload = function () {
+                        document.getElementById("secret-diary").innerText = reader.result;
+                        document.getElementById("secret-box").style.display = "block";
+                      };
+                    }
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="bigmenu">
+                <div onclick="location.href='home.html';" class="home">홈</div>
+                <div onclick="location.href='diary.html';" class="diary">다이어리</div>
+                <div onclick="location.href='photobook.html';" class="imgbook">사진첩</div>
+                <div onclick="location.href='gestbook.html';" class="hello">방명록</div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
